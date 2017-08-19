@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>生成漫画</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <style>
     * {
         padding: 0;
@@ -34,8 +35,9 @@
     .right-text {
         left: 308px;
     }
-    #img-source{
-      position: absolute;
+
+    #img-source {
+        position: absolute;
     }
     </style>
 </head>
@@ -63,7 +65,6 @@
             <button id="get-img">生成图片</button>
         </div>
         <div id="img-box">
-          
         </div>
         <ul id="img-source">
             <li class="img-item">
@@ -79,52 +80,46 @@
                 <p class="right-text">程序员</p>
             </li>
         </ul>
-
-
-
     </section>
-   <script src="jquery.min.js"></script>
-   <script src="html2canvas.js"></script>
-   <script>
-   var imgItems = $('.img-item');
-   var imgBox = $('#img-box');
-   var imgSource = $('#img-source');
-   var getImg = $('#get-img');
-     $('.input-item').each(function(index,inputItem){
-      inputItem = $(inputItem);
-      var leftInput = inputItem.find('.input-left');
-      var rightInput = inputItem.find('.input-right');
-      // var sure = inputItem.find('.sure');
-      // sure.click(function(){
-      //   console.log(1)
-        
-      // })
-      getImg.click(function(event){
-        var imgItem = imgItems.eq(index);
-        imgItem.find('.left-text').html(leftInput.val());
-        imgItem.find('.right-text').html(rightInput.val());
-       event.preventDefault();
-       html2canvas(imgSource, {
-           allowTaint: true,
-           taintTest: false,
-           logging:true,
-           onrendered: function(canvas) {
-               canvas.id = "mycanvas";
-               //document.body.appendChild(canvas);
-               //生成base64图片数据
-               var dataUrl = canvas.toDataURL();
-               var newImg = document.createElement("img");
-               newImg.src = dataUrl;
-               imgBox[0].appendChild(newImg);
-           }
-       });
-      })
-      
+    <script src="jquery.min.js"></script>
+    <script src="html2canvas.js"></script>
+    <script>
+    var imgItems = $('.img-item');
+    var imgBox = $('#img-box');
+    var imgSource = $('#img-source');
+    var getImg = $('#get-img');
 
-     })
+    // var sure = inputItem.find('.sure');
+    // sure.click(function(){
+    //   console.log(1)
 
-
-   </script>
+    // })
+    getImg.click(function(event) {
+        $('.input-item').each(function(index, inputItem) {
+            inputItem = $(inputItem);
+            var leftInput = inputItem.find('.input-left');
+            var rightInput = inputItem.find('.input-right');
+            var imgItem = imgItems.eq(index);
+            imgItem.find('.left-text').html(leftInput.val());
+            imgItem.find('.right-text').html(rightInput.val());
+        })
+        event.preventDefault();
+        html2canvas(imgSource, {
+            allowTaint: true,
+            taintTest: false,
+            logging: true,
+            onrendered: function(canvas) {
+                canvas.id = "mycanvas";
+                //document.body.appendChild(canvas);
+                //生成base64图片数据
+                var dataUrl = canvas.toDataURL();
+                var newImg = document.createElement("img");
+                newImg.src = dataUrl;
+                imgBox[0].appendChild(newImg);
+            }
+        });
+    })
+    </script>
 </body>
 
 </html>
