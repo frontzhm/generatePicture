@@ -5,7 +5,7 @@
 遂想只需要输入想要的内容，然后生成相应的漫画。  
 主要用到一个`html2canvas.js`  
 直接打开网址就可以玩耍：  
-https://frontzhm.github.io/generatePicture/index.html
+https://frontzhm.github.io/html2manga/index.html
 
 或者扫码玩耍
 
