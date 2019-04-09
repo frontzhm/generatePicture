@@ -1,3 +1,8 @@
 # generatePicture
-最近流行一组漫画，想做简单的生成，不动用图像编辑软件
+
+最近流行【我们是谁】漫画，因为想自定义内容。  
+但图片编辑有点麻烦。  
+遂想只需要输入想要的内容，然后生成相应的漫画。  
+主要用到一个`html2canvas.js`  
+直接打开网址就可以玩耍：  
 https://frontzhm.github.io/generatePicture/index.html
