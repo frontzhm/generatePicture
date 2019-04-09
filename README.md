@@ -9,4 +9,5 @@ https://frontzhm.github.io/generatePicture/index.html
 
 或者扫码玩耍
 
-![二维码](http://hanfiles.oss-cn-beijing.aliyuncs.com/github/who-am-us.png)
+![二维码](https://hanfiles.oss-cn-beijing.aliyuncs.com/github/who-am-us.png)
+ 
