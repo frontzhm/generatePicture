@@ -1,4 +1,4 @@
-# generatePicture
+# html2manga
 
 最近流行【我们是谁】漫画，因为想自定义内容。  
 但图片编辑有点麻烦。  
