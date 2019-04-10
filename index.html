@@ -37,6 +37,16 @@
     #img-source{
       position: absolute;
     }
+        #qrcode{
+            position:absolute;
+            right:20px;
+            bottom:20px;
+        }
+        @media (max-width:800px){
+            #qrcode{
+                display:none;
+            }
+        }
     </style>
 </head>
 
@@ -83,6 +93,9 @@
 
 
     </section>
+    <div id="qrcode">
+        <img src="https://hanfiles.oss-cn-beijing.aliyuncs.com/github/who-am-us.png">
+    </div>
    <script src="jquery.min.js"></script>
    <script src="html2canvas.js"></script>
    <script>
