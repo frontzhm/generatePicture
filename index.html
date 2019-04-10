@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
     <title>【我们是谁】生成漫画</title>
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
 
@@ -49,11 +52,7 @@
           content:'手机扫码直接玩耍：'
           
       }
-      @media (max-width: 800px) {
-        #qrcode {
-          display: none;
-        }
-      }
+      
       .input-item{
           margin-top:10px;
           display: flex;
@@ -68,6 +67,23 @@
       #get-img{
           margin:20px;
           
+      }
+      #dec{
+          text-align: center;
+          font-size: 12px;
+          color: #999;
+      }
+      @media (max-width: 800px) {
+        #qrcode {
+          display: none;
+        }
+        
+      }
+      @media (min-width: 800px) {
+       #dec {
+          display: none;
+        }
+        
       }
     </style>
   </head>
@@ -130,6 +146,7 @@
         </ol>
         <div class="btn-wrap"><button id="get-img" class="btn btn-primary">生成图片</button></div>
       </div>
+      <div id="dec">可以长按图片分享给朋友玩~</div>
       <div id="img-box"></div>
       <ul id="img-source">
         <li class="img-item">
