@@ -3,11 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>生成漫画</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="description" content="输入三组对话，点击生成漫画即可得到新的漫画">
-    <meta name="author" content="frontzhm,frontzhm@163.com">
-    <meta name="keywords" content="我们是谁，生成漫画">
+    <title>【我们是谁】生成漫画</title>
     <style>
     * {
         padding: 0;
@@ -15,29 +11,15 @@
         list-style: none;
     }
 
-    img {
-        max-width: 100%;
-        display: block;
-    }
-
     #container {
-        max-width: 500px;
-        margin-top: 10px;
-        
-    }
-    @media (min-width: 420px) {
-      #container{
-        margin-left:auto;
-      margin-right:auto;
-      }
-      
+        width: 500px;
+        margin: 20px auto;
     }
 
     .img-item {
-        width: 100%;
-        /*height: 184px;*/
+        width: 500px;
+        height: 184px;
         background: url(who.jpg) no-repeat;
-        background-size: 100%;
         position: relative;
         /*bottom: 1px solid #000;*/
     }
@@ -45,148 +27,104 @@
     .left-text,
     .right-text {
         position: absolute;
-        left: 10.8%;
-        top: 9%;
-        font-size: 15px;
+        left: 58px;
+        top: 16px;
     }
 
     .right-text {
-        left: 60%;
+        left: 308px;
     }
-
-    #img-source {
-        position: absolute;
-    }
-
-    input {
-        width: 42%;
-        height: 16px;
-        padding: 10px;
-        outline: 0;
-        border: 1px solid #ccc;
-    }
-
-    #input-wrap {
-        margin-top: 30px;
-        text-align: center;
-    }
-
-    h3 {
-        font-size: 16px;
-        font-weight: normal;
-    }
-
-    .input-item {
-        text-align: center;
-        margin-top: 5px;
-    }
-
-    #get-img {
-        width: 50%;
-        line-height: 30px;
-        background-color: #69f;
-        border: 0;
-        outline: 0;
-        color: #fff;
-        border-radius: 4px;
-        margin-top: 5px;
-    }
-
-    .who-img {
-        /*position: absolute;*/
-        width: 100%;
-    }
-    .desc-text{
-      font-size: 12px;
-      color:#999;
+    #img-source{
+      position: absolute;
     }
     </style>
 </head>
 
 <body>
-    <div id="input-wrap">
-        <h3>填写漫画的三组对话</h3>
-        <ol>
-            <li class="input-item">
-                <input class="input-left" type="text" maxlength="10" placeholder="第1行左边文字">
-                <input class="input-right" type="text" maxlength="10" placeholder="第1行右边文字">
-                <!-- <button class="sure"> 确定</button> -->
-            </li>
-            <li class="input-item">
-                <input class="input-left" type="text" maxlength="10" placeholder="第2行左边文字">
-                <input class="input-right" type="text" maxlength="10" placeholder="第2行右边文字">
-                <!-- <button class="sure"> 确定</button> -->
-            </li>
-            <li class="input-item">
-                <input class="input-left" type="text" maxlength="10" placeholder="第3行左边文字">
-                <input class="input-right" type="text" maxlength="10" placeholder="第3行右边文字">
-                <!-- <button class="sure"> 确定</button> -->
-            </li>
-        </ol>
-        <button id="get-img">生成漫画</button>
-        <p class="desc-text">生成图片后，长按图片即可分享</p>
-    </div>
     <section id="container">
+        <div>
+            <ol>
+                <li class="input-item">
+                    <input class="input-left" type="text" maxlength="10" placeholder="第1行左边文字" value="我们是谁？">
+                    <input class="input-right" type="text" maxlength="10" placeholder="第1行右边文字" value="前端攻城狮！">
+                    <!-- <button class="sure"> 确定</button> -->
+                </li>
+                <li class="input-item">
+                    <input class="input-left" type="text" maxlength="10" placeholder="第2行左边文字" value="我们的目标是什么？">
+                    <input class="input-right" type="text" maxlength="10" placeholder="第2行右边文字" value="创建一流网站！">
+                    <!-- <button class="sure"> 确定</button> -->
+                </li>
+                <li class="input-item">
+                    <input class="input-left" type="text" maxlength="10" placeholder="第3行左边文字" value="我们该怎么做？">
+                    <input class="input-right" type="text" maxlength="10" placeholder="第3行右边文字" value="努力！努力！再努力！">
+                    <!-- <button class="sure"> 确定</button> -->
+                </li>
+            </ol>
+            <button id="get-img">生成图片</button>
+        </div>
         <div id="img-box">
+          
         </div>
         <ul id="img-source">
             <li class="img-item">
-                <img src="who.jpg" alt="" class="who-img">
-                <p class="left-text">我们是谁</p>
-                <p class="right-text">程序员</p>
+                <p class="left-text">我们是谁？</p>
+                <p class="right-text">前端攻城狮！</p>
             </li>
             <li class="img-item">
-                <img src="who.jpg" alt="" class="who-img">
-                <p class="left-text">我们是谁</p>
-                <p class="right-text">程序员</p>
+                <p class="left-text">我们的目标是什么？</p>
+                <p class="right-text">创建一流网站！</p>
             </li>
             <li class="img-item">
-                <img src="who.jpg" alt="" class="who-img">
-                <p class="left-text">我们是谁</p>
-                <p class="right-text">程序员</p>
+                <p class="left-text">我们该怎么做？</p>
+                <p class="right-text">努力！努力！再努力！</p>
             </li>
         </ul>
+
+
+
     </section>
-    <script src="jquery.min.js"></script>
-    <script src="html2canvas.js"></script>
-    <script>
-    var imgItems = $('.img-item');
-    var imgBox = $('#img-box');
-    var imgSource = $('#img-source');
-    var getImg = $('#get-img');
+   <script src="jquery.min.js"></script>
+   <script src="html2canvas.js"></script>
+   <script>
+   var imgItems = $('.img-item');
+   var imgBox = $('#img-box');
+   var imgSource = $('#img-source');
+   var getImg = $('#get-img');
+     $('.input-item').each(function(index,inputItem){
+      inputItem = $(inputItem);
+      var leftInput = inputItem.find('.input-left');
+      var rightInput = inputItem.find('.input-right');
+      // var sure = inputItem.find('.sure');
+      // sure.click(function(){
+      //   console.log(1)
+        
+      // })
+      getImg.click(function(event){
+        var imgItem = imgItems.eq(index);
+        imgItem.find('.left-text').html(leftInput.val());
+        imgItem.find('.right-text').html(rightInput.val());
+       event.preventDefault();
+       html2canvas(imgSource, {
+           allowTaint: true,
+           taintTest: false,
+           logging:true,
+           onrendered: function(canvas) {
+               canvas.id = "mycanvas";
+               //document.body.appendChild(canvas);
+               //生成base64图片数据
+               var dataUrl = canvas.toDataURL();
+               var newImg = document.createElement("img");
+               newImg.src = dataUrl;
+               imgBox.appendChild(newImg);
+           }
+       });
+      })
+      
 
-    // var sure = inputItem.find('.sure');
-    // sure.click(function(){
-    //   console.log(1)
+     })
 
-    // })
-    getImg.click(function(event) {
-        $('.input-item').each(function(index, inputItem) {
-            inputItem = $(inputItem);
-            var leftInput = inputItem.find('.input-left');
-            var rightInput = inputItem.find('.input-right');
-            var imgItem = imgItems.eq(index);
-            imgItem.find('.left-text').html(leftInput.val());
-            imgItem.find('.right-text').html(rightInput.val());
-        })
-        event.preventDefault();
-        html2canvas(imgSource, {
-            allowTaint: true,
-            taintTest: false,
-            logging: true,
-            onrendered: function(canvas) {
-                canvas.id = "mycanvas";
-                //document.body.appendChild(canvas);
-                //生成base64图片数据
-                var dataUrl = canvas.toDataURL();
-                var newImg = document.createElement("img");
-                newImg.src = dataUrl;
-                imgBox[0].appendChild(newImg);
-                imgSource.hide(0);
-            }
-        });
-    })
-    </script>
+
+   </script>
 </body>
 
 </html>
