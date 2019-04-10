@@ -1,143 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>【我们是谁】生成漫画</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
+
     <style>
-    * {
+      html,body,ul,ol,p {
         padding: 0;
         margin: 0;
         list-style: none;
-    }
+      }
 
-    #container {
+      #container {
         width: 500px;
         margin: 20px auto;
-    }
+      }
 
-    .img-item {
+      .img-item {
         width: 500px;
         height: 184px;
         background: url(who.jpg) no-repeat;
         position: relative;
         /*bottom: 1px solid #000;*/
-    }
+      }
 
-    .left-text,
-    .right-text {
+      .left-text,
+      .right-text {
         position: absolute;
         left: 58px;
         top: 16px;
-    }
+      }
 
-    .right-text {
+      .right-text {
         left: 308px;
-    }
-    #img-source{
-      position: absolute;
-    }
-        #qrcode{
-            position:absolute;
-            right:20px;
-            bottom:20px;
-        }
-        @media (max-width:800px){
-            #qrcode{
-                display:none;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <section id="container">
-        <div>
-            <ol>
-                <li class="input-item">
-                    <input class="input-left" type="text" maxlength="10" placeholder="第1行左边文字" value="我们是谁？">
-                    <input class="input-right" type="text" maxlength="10" placeholder="第1行右边文字" value="前端攻城狮！">
-                    <!-- <button class="sure"> 确定</button> -->
-                </li>
-                <li class="input-item">
-                    <input class="input-left" type="text" maxlength="10" placeholder="第2行左边文字" value="我们的目标是什么？">
-                    <input class="input-right" type="text" maxlength="10" placeholder="第2行右边文字" value="创建一流网站！">
-                    <!-- <button class="sure"> 确定</button> -->
-                </li>
-                <li class="input-item">
-                    <input class="input-left" type="text" maxlength="10" placeholder="第3行左边文字" value="我们该怎么做？">
-                    <input class="input-right" type="text" maxlength="10" placeholder="第3行右边文字" value="努力！努力！再努力！">
-                    <!-- <button class="sure"> 确定</button> -->
-                </li>
-            </ol>
-            <button id="get-img">生成图片</button>
-        </div>
-        <div id="img-box">
+      }
+      #img-source {
+        position: absolute;
+      }
+      #qrcode {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        width: 150px;
+        height: 150px;
+      }
+      #qrcode::before{
+          content:'手机扫码直接玩耍：'
           
-        </div>
-        <ul id="img-source">
-            <li class="img-item">
-                <p class="left-text">我们是谁？</p>
-                <p class="right-text">前端攻城狮！</p>
-            </li>
-            <li class="img-item">
-                <p class="left-text">我们的目标是什么？</p>
-                <p class="right-text">创建一流网站！</p>
-            </li>
-            <li class="img-item">
-                <p class="left-text">我们该怎么做？</p>
-                <p class="right-text">努力！努力！再努力！</p>
-            </li>
-        </ul>
+      }
+      @media (max-width: 800px) {
+        #qrcode {
+          display: none;
+        }
+      }
+      .input-item{
+          margin-top:10px;
+          display: flex;
+          justify-content: space-between;
+      }
+      .input-item input{
+          width: 45%;
+      }
+      .btn-wrap{
+          text-align: center;
+      }
+      #get-img{
+          margin:20px;
+          
+      }
+    </style>
+  </head>
 
-
-
+  <body>
+    <section id="container">
+      <div>
+        <ol>
+          <li class="input-item">
+            <input
+              class="form-control input-left"
+              type="text"
+              maxlength="10"
+              placeholder="第1行左边文字"
+              value="我们是谁？"
+            />
+            <input
+              class="form-control input-right"
+              type="text"
+              maxlength="10"
+              placeholder="第1行右边文字"
+              value="前端攻城狮！"
+            />
+            <!-- <button class="sure"> 确定</button> -->
+          </li>
+          <li class="input-item">
+            <input
+              class="form-control input-left"
+              type="text"
+              maxlength="10"
+              placeholder="第2行左边文字"
+              value="我们的目标是什么？"
+            />
+            <input
+              class="form-control input-right"
+              type="text"
+              maxlength="10"
+              placeholder="第2行右边文字"
+              value="创建一流网站！"
+            />
+            <!-- <button class="sure"> 确定</button> -->
+          </li>
+          <li class="input-item">
+            <input
+              class="form-control input-left"
+              type="text"
+              maxlength="10"
+              placeholder="第3行左边文字"
+              value="我们该怎么做？"
+            />
+            <input
+              class="form-control input-right"
+              type="text"
+              maxlength="10"
+              placeholder="第3行右边文字"
+              value="努力！努力！再努力！"
+            />
+            <!-- <button class="sure"> 确定</button> -->
+          </li>
+        </ol>
+        <div class="btn-wrap"><button id="get-img" class="btn btn-primary">生成图片</button></div>
+      </div>
+      <div id="img-box"></div>
+      <ul id="img-source">
+        <li class="img-item">
+          <p class="left-text">我们是谁？</p>
+          <p class="right-text">前端攻城狮！</p>
+        </li>
+        <li class="img-item">
+          <p class="left-text">我们的目标是什么？</p>
+          <p class="right-text">创建一流网站！</p>
+        </li>
+        <li class="img-item">
+          <p class="left-text">我们该怎么做？</p>
+          <p class="right-text">努力！努力！再努力！</p>
+        </li>
+      </ul>
     </section>
     <div id="qrcode">
-        <img src="https://hanfiles.oss-cn-beijing.aliyuncs.com/github/who-am-us.png">
+      <img
+        src="https://hanfiles.oss-cn-beijing.aliyuncs.com/github/who-am-us.png"
+      />
     </div>
-   <script src="jquery.min.js"></script>
-   <script src="html2canvas.js"></script>
-   <script>
-   var imgItems = $('.img-item');
-   var imgBox = $('#img-box');
-   var imgSource = $('#img-source');
-   var getImg = $('#get-img');
-     $('.input-item').each(function(index,inputItem){
-      inputItem = $(inputItem);
-      var leftInput = inputItem.find('.input-left');
-      var rightInput = inputItem.find('.input-right');
-      // var sure = inputItem.find('.sure');
-      // sure.click(function(){
-      //   console.log(1)
-        
-      // })
-      getImg.click(function(event){
-        var imgItem = imgItems.eq(index);
-        imgItem.find('.left-text').html(leftInput.val());
-        imgItem.find('.right-text').html(rightInput.val());
-       event.preventDefault();
-       html2canvas(imgSource, {
-           allowTaint: true,
-           taintTest: false,
-           logging:true,
-           onrendered: function(canvas) {
-               canvas.id = "mycanvas";
-               //document.body.appendChild(canvas);
-               //生成base64图片数据
-               var dataUrl = canvas.toDataURL();
-               var newImg = document.createElement("img");
-               newImg.src = dataUrl;
-               imgBox.appendChild(newImg);
-           }
-       });
-      })
-      
+    <script src="jquery.min.js"></script>
+    <script src="html2canvas.js"></script>
+    <script>
+      var imgItems = $(".img-item");
+      var imgBox = $("#img-box");
+      var imgSource = $("#img-source");
+      var getImg = $("#get-img");
+      $(".input-item").each(function(index, inputItem) {
+        inputItem = $(inputItem);
+        var leftInput = inputItem.find(".input-left");
+        var rightInput = inputItem.find(".input-right");
+        // var sure = inputItem.find('.sure');
+        // sure.click(function(){
+        //   console.log(1)
 
-     })
-
-
-   </script>
-</body>
-
+        // })
+        getImg.click(function(event) {
+          var imgItem = imgItems.eq(index);
+          imgItem.find(".left-text").html(leftInput.val());
+          imgItem.find(".right-text").html(rightInput.val());
+          event.preventDefault();
+          html2canvas(imgSource, {
+            allowTaint: true,
+            taintTest: false,
+            logging: true,
+            onrendered: function(canvas) {
+              canvas.id = "mycanvas";
+              //document.body.appendChild(canvas);
+              //生成base64图片数据
+              var dataUrl = canvas.toDataURL();
+              var newImg = document.createElement("img");
+              newImg.src = dataUrl;
+              imgBox.appendChild(newImg);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
